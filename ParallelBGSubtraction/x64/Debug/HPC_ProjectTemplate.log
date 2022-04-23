@@ -1,0 +1,105 @@
+﻿  FileManager.cpp
+  The contents of <filesystem> are available only with C++17 or later.
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.h(4,11): error C2143: syntax error: missing ';' before '<class-head>'
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.h(5,1): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(10,31): error C3083: 'filesystem': the symbol to the left of a '::' must be a type
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(10,43): error C2039: 'directory_iterator': is not a member of 'std'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\iostream(19): message : see declaration of 'std'
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(10,76): error C3861: 'directory_iterator': identifier not found
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(11,2): error C3861: 'directory_iterator': identifier not found
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(10,61): error C2672: 'begin': no matching overloaded function found
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(11,2): error C2893: Failed to specialize function template 'unknown-type std::begin(_Container &)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xutility(1916): message : see declaration of 'std::begin'
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(11,2): message : With the following template arguments:
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(11,2): message : '_Container=unknown-type'
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(11,2): error C2784: 'const _Elem *std::begin(std::initializer_list<_Elem>) noexcept': could not deduce template argument for 'std::initializer_list<_Elem>' from 'unknown-type'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\initializer_list(57): message : see declaration of 'std::begin'
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(10,61): error C2672: 'end': no matching overloaded function found
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(11,2): error C2893: Failed to specialize function template 'unknown-type std::end(_Container &)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xutility(1926): message : see declaration of 'std::end'
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(11,2): message : With the following template arguments:
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(11,2): message : '_Container=unknown-type'
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(11,2): error C2784: 'const _Elem *std::end(std::initializer_list<_Elem>) noexcept': could not deduce template argument for 'std::initializer_list<_Elem>' from 'unknown-type'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\initializer_list(63): message : see declaration of 'std::end'
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(11,2): error C3536: '<begin>$L0': cannot be used before it is initialized
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(11,2): error C3536: '<end>$L0': cannot be used before it is initialized
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(10,76): error C2100: illegal indirection
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(19,31): error C3083: 'filesystem': the symbol to the left of a '::' must be a type
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(19,43): error C2039: 'directory_iterator': is not a member of 'std'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\iostream(19): message : see declaration of 'std'
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(19,76): error C3861: 'directory_iterator': identifier not found
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(20,2): error C3861: 'directory_iterator': identifier not found
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(19,61): error C2672: 'begin': no matching overloaded function found
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(20,2): error C2893: Failed to specialize function template 'unknown-type std::begin(_Container &)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xutility(1916): message : see declaration of 'std::begin'
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(20,2): message : With the following template arguments:
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(20,2): message : '_Container=unknown-type'
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(20,2): error C2784: 'const _Elem *std::begin(std::initializer_list<_Elem>) noexcept': could not deduce template argument for 'std::initializer_list<_Elem>' from 'unknown-type'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\initializer_list(57): message : see declaration of 'std::begin'
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(19,61): error C2672: 'end': no matching overloaded function found
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(20,2): error C2893: Failed to specialize function template 'unknown-type std::end(_Container &)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xutility(1926): message : see declaration of 'std::end'
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(20,2): message : With the following template arguments:
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(20,2): message : '_Container=unknown-type'
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(20,2): error C2784: 'const _Elem *std::end(std::initializer_list<_Elem>) noexcept': could not deduce template argument for 'std::initializer_list<_Elem>' from 'unknown-type'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\initializer_list(63): message : see declaration of 'std::end'
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(20,2): error C3536: '<begin>$L1': cannot be used before it is initialized
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(20,2): error C3536: '<end>$L1': cannot be used before it is initialized
+C:\Users\pc\Desktop\Uni\3rd Year\2ND TERM\HPC\ParallelBGSubtraction\ParallelBGSubtraction\FileManager.cpp(19,76): error C2100: illegal indirection
+  ImgProcessing.cpp
+  The contents of <filesystem> are available only with C++17 or later.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\msclr\gcroot.h(59,17): error C2653: 'System': is not a class or namespace name
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\msclr\gcroot.h(140): message : see reference to class template instantiation 'gcroot<T>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\msclr\gcroot.h(59,60): error C3646: 'GCHandle': unknown override specifier
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\msclr\gcroot.h(59,1): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(28,15): error C2653: 'System': is not a class or namespace name
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(28,27): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(28,27): error C2143: syntax error: missing ';' before '*'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(28,45): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(29,15): error C2653: 'System': is not a class or namespace name
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(29,27): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(29,27): error C2143: syntax error: missing ';' before '*'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(29,45): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(30,9): error C2653: 'System': is not a class or namespace name
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(31,15): error C2653: 'System': is not a class or namespace name
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(31,29): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(31,29): error C2143: syntax error: missing ';' before '*'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(31,52): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(39,8): error C7525: inline variables require at least '/std:c++17'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(39,41): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(39,8): error C2040: '__const_Char_ptr': 'int' differs in levels of indirection from 'int *'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(39,25): error C2146: syntax error: missing ';' before identifier 'PtrToStringChars'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(39,64): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(39,64): error C2146: syntax error: missing ')' before identifier 's'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(39,67): error C2143: syntax error: missing ';' before '{'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(39,67): error C2447: '{': missing function header (old-style formal list?)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\msclr\marshal.h(19,12): fatal error C1190: System::Object not found, missing /clr option or missing import of standard assemblies?
+  Main.cpp
+  The contents of <filesystem> are available only with C++17 or later.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\msclr\gcroot.h(59,17): error C2653: 'System': is not a class or namespace name
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\msclr\gcroot.h(140): message : see reference to class template instantiation 'gcroot<T>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\msclr\gcroot.h(59,60): error C3646: 'GCHandle': unknown override specifier
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\msclr\gcroot.h(59,1): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(28,15): error C2653: 'System': is not a class or namespace name
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(28,27): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(28,27): error C2143: syntax error: missing ';' before '*'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(28,45): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(29,15): error C2653: 'System': is not a class or namespace name
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(29,27): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(29,27): error C2143: syntax error: missing ';' before '*'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(29,45): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(30,9): error C2653: 'System': is not a class or namespace name
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(31,15): error C2653: 'System': is not a class or namespace name
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(31,29): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(31,29): error C2143: syntax error: missing ';' before '*'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(31,52): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(39,8): error C7525: inline variables require at least '/std:c++17'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(39,41): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(39,8): error C2040: '__const_Char_ptr': 'int' differs in levels of indirection from 'int *'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(39,25): error C2146: syntax error: missing ';' before identifier 'PtrToStringChars'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(39,64): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(39,64): error C2146: syntax error: missing ')' before identifier 's'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(39,67): error C2143: syntax error: missing ';' before '{'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vcclr.h(39,67): error C2447: '{': missing function header (old-style formal list?)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\msclr\marshal.h(19,12): fatal error C1190: System::Object not found, missing /clr option or missing import of standard assemblies?
+  Generating Code...
