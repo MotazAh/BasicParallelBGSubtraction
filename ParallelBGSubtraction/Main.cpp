@@ -23,8 +23,8 @@ int main()
 	int worldRank;
 	MPI_Comm_rank(MPI_COMM_WORLD, &worldRank);
 
-	ImgProcessing imgProc;
-	FileManager fManager;
+	ImgProcessing imgProc; // Holds functions for loading and creating images
+	FileManager fManager; // Holds function for 
 	System::String^ imagePath;
 
 	int start_s, stop_s, TotalTime = 0; // Stopwatch for testing
@@ -50,13 +50,14 @@ int main()
 		return 0;
 	}
 
-	imagesData = new int* [imageCount / worldSize];
+	int imagesPerProcess = imageCount / worldSize;
+	imagesData = new int* [imagesPerProcess];
 
 	// Get image data with each processor to 2d array
-	for (int i = worldRank * (imageCount / worldSize); i < (worldRank + 1) * (imageCount / worldSize); i++)
+	for (int i = worldRank * (imagesPerProcess); i < (worldRank + 1) * (imagesPerProcess); i++)
 	{
 		imagePath = marshal_as<System::String^>(fileList[i]);
-		imagesData[i % (imageCount / worldSize)] = imgProc.inputImage(&ImageWidth, &ImageHeight, imagePath);
+		imagesData[i % (imagesPerProcess)] = imgProc.inputImage(&ImageWidth, &ImageHeight, imagePath);
 	}
 
 	float* localBG_Pixels = new float[ImageHeight * ImageWidth];
@@ -68,7 +69,7 @@ int main()
 	for (int p = 0; p < ImageHeight * ImageWidth; p++)
 	{
 		int sum = 0;
-		for (int i = 0; i < imageCount / worldSize; i++)
+		for (int i = 0; i < imagesPerProcess; i++)
 			sum += imagesData[i][p];
 		localBG_Pixels[p] = sum / imageCount;
 	}
@@ -84,7 +85,7 @@ int main()
 	int* InputImageData = new int[ImageHeight * ImageWidth];
 	
 	// Get data for input image (last image)
-	InputImageData = imagesData[(imageCount / worldSize) - 1];
+	InputImageData = imagesData[(imagesPerProcess) - 1];
 
 	// Broadcast image data from last processor as it is the last image
 	MPI_Bcast(InputImageData, ImageHeight * ImageWidth, MPI_INT, worldSize - 1, MPI_COMM_WORLD);
@@ -98,55 +99,16 @@ int main()
 		localFG_Pixels[p] = (std::abs(finalLocalBG[p] - InputImageData[(((ImageHeight * ImageWidth) / worldSize) * worldRank ) + p]) > threshold ? 255 : 0);
 	}
 	
+	// Gather all local FG pixels into FG_Pixels in root 
 	MPI_Gather(localFG_Pixels, (ImageHeight * ImageWidth) / worldSize, MPI_INT, FG_Pixels, (ImageHeight * ImageWidth) / worldSize, MPI_FLOAT, 0, MPI_COMM_WORLD);
 
+	// Create foreground maks using FG_Pixels at root
 	if (worldRank == 0)
 		imgProc.createImage(FG_Pixels, ImageWidth, ImageHeight, 1);
 
 	stop_s = clock(); // Get end time of stopwatch
 	TotalTime += (stop_s - start_s) / double(CLOCKS_PER_SEC) * 1000;
 	cout << "time: " << TotalTime << endl;
-
-	/*
-	// Calculate the foreground mask pixels
-	for (int p = 0; p < ImageHeight * ImageWidth; p++)
-	{
-		// Joing with above loop
-		FG_Pixels[p] = (std::abs(BG_Pixels[p] - imagesData[imageCount - 1][p]) > threshold ? 255 : 0);
-	}
-	// Create foreground mask and background images
-	imgProc.createImage(FG_Pixels, ImageWidth, ImageHeight, 0);
-	imgProc.createImage(BG_Pixels, ImageWidth, ImageHeight, 1);
-	
-	for (int i = 0; i < imageCount; i++)
-	{
-		free(imagesData[i]);
-	}
-	*/
-	//system("pause");
 	MPI_Finalize();
 	return 0;
-
 }
-/*
-	int ImageWidth = 4, ImageHeight = 4;
-
-	int start_s, stop_s, TotalTime = 0;
-
-	System::String^ imagePath;
-	std::string img;
-	img = "..//Data//Input//test.png";
-
-	imagePath = marshal_as<System::String^>(img);
-	int* imageData = inputImage(&ImageWidth, &ImageHeight, imagePath);
-
-
-	start_s = clock();
-	createImage(imageData, ImageWidth, ImageHeight, 0);
-	stop_s = clock();
-	TotalTime += (stop_s - start_s) / double(CLOCKS_PER_SEC) * 1000;
-	cout << "time: " << TotalTime << endl;
-
-	free(imageData);
-	return 0;
-*/
