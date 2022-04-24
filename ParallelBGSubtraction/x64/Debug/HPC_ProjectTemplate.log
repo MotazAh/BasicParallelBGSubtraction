@@ -1,7 +1,3 @@
-﻿  FileManager.cpp
-  ImgProcessing.cpp
-  Main.cpp
-  .NETFramework,Version=v4.0.AssemblyAttributes.cpp
-  Generating Code...
+﻿  Main.cpp
   FileManager.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
-  HPC_ProjectTemplate.vcxproj -> C:\Users\pc\Documents\GitHub\BasicParallelBGSubtraction\x64\Debug\ParallelBGSubtraction.exe
+  HPC_ProjectTemplate.vcxproj -> C:\Users\ayman\Desktop\Pdf\6th semester\HPC\HPC_ProjectTemplate\BasicParallelBGSubtraction\x64\Debug\ParallelBGSubtraction.exe
