@@ -1,7 +1,5 @@
-﻿  FileManager.cpp
-  ImgProcessing.cpp
-  Main.cpp
-  .NETFramework,Version=v4.0.AssemblyAttributes.cpp
-  Generating Code...
+﻿  Main.cpp
+C:\Users\pc\Documents\GitHub\BasicParallelBGSubtraction\ParallelBGSubtraction\Main.cpp(53,40): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\pc\Documents\GitHub\BasicParallelBGSubtraction\ParallelBGSubtraction\Main.cpp(28,18): warning C4101: 'imagePath': unreferenced local variable
   FileManager.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   HPC_ProjectTemplate.vcxproj -> C:\Users\pc\Documents\GitHub\BasicParallelBGSubtraction\x64\Debug\ParallelBGSubtraction.exe

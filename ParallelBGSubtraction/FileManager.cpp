@@ -1,7 +1,7 @@
 #include "FileManager.h"
 
 // Returns string array of file names in a given directory
-std::string* FileManager::getFiles(std::string directoryPath, int* fileCount)
+std::string* FileManager::getFiles(std::string directoryPath, int* fileCount, int* pathLength)
 {
 	int count = 0;
 	std::string* files;
@@ -12,6 +12,7 @@ std::string* FileManager::getFiles(std::string directoryPath, int* fileCount)
 		count++;
 	}
 	*fileCount = count;
+	pathLength = new int[count];
 	files = new std::string[count];
 	count = 0;
 
@@ -19,6 +20,7 @@ std::string* FileManager::getFiles(std::string directoryPath, int* fileCount)
 	for (auto const& file : std::filesystem::directory_iterator(directoryPath))
 	{
 		files[count] = file.path().u8string();
+		pathLength[count] = files[count].length();
 		count++;
 	}
 	return files;

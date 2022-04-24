@@ -39,7 +39,7 @@ int* ImgProcessing::inputImage(int* w, int* h, System::String^ imagePath) //put 
 }
 
 
-void ImgProcessing::createImage(int* image, int width, int height, int index)
+void ImgProcessing::createImage(float* image, int width, int height, int index)
 {
 	System::Drawing::Bitmap MyNewImage(width, height);
 
@@ -57,7 +57,7 @@ void ImgProcessing::createImage(int* image, int width, int height, int index)
 			{
 				image[i * width + j] = 255;
 			}
-			System::Drawing::Color c = System::Drawing::Color::FromArgb(image[i * MyNewImage.Width + j], image[i * MyNewImage.Width + j], image[i * MyNewImage.Width + j]);
+			System::Drawing::Color c = System::Drawing::Color::FromArgb((int)image[i * MyNewImage.Width + j], (int)image[i * MyNewImage.Width + j], (int)image[i * MyNewImage.Width + j]);
 			MyNewImage.SetPixel(j, i, c);
 		}
 	}
