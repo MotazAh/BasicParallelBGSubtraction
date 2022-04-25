@@ -1,3 +1,1 @@
 C:\Users\pc\Documents\GitHub\BasicParallelBGSubtraction\ParallelBGSubtraction\x64\Debug\HPC_ProjectTemplate.vcxproj.AssemblyReference.cache
-C:\Users\ayman\Desktop\Pdf\6th semester\HPC\HPC_ProjectTemplate\BasicParallelBGSubtraction\ParallelBGSubtraction\x64\Debug\HPC_ProjectTemplate.vcxproj.AssemblyReference.cache
-C:\Users\ayman\Desktop\Pdf\6th semester\HPC\HPC_ProjectTemplate\BasicParallelBGSubtraction\ParallelBGSubtraction\x64\Debug\HPC_ProjectTemplate.vcxproj.SuggestedBindingRedirects.cache

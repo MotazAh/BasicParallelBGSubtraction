@@ -13,7 +13,7 @@
 ref class ImgProcessing
 {
 public:
-	void createImage(int* image, int width, int height, int index);
+	void createImage(float* image, int width, int height, int index);
 	int* inputImage(int* w, int* h, System::String^ imagePath); //put the size of image in w & h
 };
 

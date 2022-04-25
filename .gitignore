@@ -66,3 +66,4 @@ artifacts/
 .vs/ParallelBackgroundSubtraction/v16/Browse.VC.db-shm
 .vs/ParallelBackgroundSubtraction/v16/Browse.VC.db-wal
 .vs/ParallelBackgroundSubtraction/v16/Browse.VC.db
+*.db
