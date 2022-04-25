@@ -9,7 +9,8 @@
 #using <System.Windows.Forms.dll>
 using namespace std;
 using namespace msclr::interop;
-
+#define MASK 294
+#define THRESHOLD 40
 int main()
 {
 	// Initialise MPI environment
