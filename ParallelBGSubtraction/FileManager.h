@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 #include <filesystem>
+#include <fstream>
+
 
 ref class FileManager
 {

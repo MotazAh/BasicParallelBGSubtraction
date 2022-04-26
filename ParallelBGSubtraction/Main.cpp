@@ -9,10 +9,19 @@
 #using <System.Windows.Forms.dll>
 using namespace std;
 using namespace msclr::interop;
-#define MASK 294
-#define THRESHOLD 40
+#define MASK 269
+#define THRESHOLD 35
 int main()
 {
+
+	ImgProcessing imgProc; // Holds functions for loading and creating images
+	FileManager fManager; // Holds function for 
+	System::String^ imagePath;
+	//get mask img
+	imagePath = marshal_as<System::String^>("..//Data//input\\in000"+std::to_string(MASK)+".jpg");
+	int ImageWidth = 4, ImageHeight = 4;
+	int* maskImg =imgProc.inputImage(&ImageWidth, &ImageHeight, imagePath);
+	
 	// Initialise MPI environment
 	MPI_Init(NULL, NULL);
 
@@ -24,12 +33,9 @@ int main()
 	int worldRank;
 	MPI_Comm_rank(MPI_COMM_WORLD, &worldRank);
 
-	ImgProcessing imgProc; // Holds functions for loading and creating images
-	FileManager fManager; // Holds function for 
-	System::String^ imagePath;
 
 	int start_s, stop_s, TotalTime = 0; // Stopwatch for testing
-	int ImageWidth = 4, ImageHeight = 4;
+
 	int imageCount = 0;
 	int threshold = 40; // Controls what pixels to show in FG mask
 	int** imagesData = NULL; // 2D matrix to hold all the image vectors
@@ -53,10 +59,10 @@ int main()
 
 	int imagesPerProcess = imageCount / worldSize;
 	imagesData = new int* [imagesPerProcess];
-
 	// Get image data with each processor to 2d array
 	for (int i = worldRank * (imagesPerProcess); i < (worldRank + 1) * (imagesPerProcess); i++)
 	{
+
 		imagePath = marshal_as<System::String^>(fileList[i]);
 		imagesData[i % (imagesPerProcess)] = imgProc.inputImage(&ImageWidth, &ImageHeight, imagePath);
 	}
@@ -86,7 +92,7 @@ int main()
 	int* InputImageData = new int[ImageHeight * ImageWidth];
 	
 	// Get data for input image (last image)
-	InputImageData = imagesData[(imagesPerProcess) - 1];
+	InputImageData =maskImg;
 
 	// Broadcast image data from last processor as it is the last image
 	MPI_Bcast(InputImageData, ImageHeight * ImageWidth, MPI_INT, worldSize - 1, MPI_COMM_WORLD);
