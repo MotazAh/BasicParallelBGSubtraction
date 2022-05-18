@@ -7,12 +7,21 @@
 #using <System.dll>
 #using <System.Drawing.dll>
 #using <System.Windows.Forms.dll>
+
+#define MASK 294
 using namespace std;
 using namespace msclr::interop;
-#define MASK 294
-#define THRESHOLD 40
+
 int main()
 {
+	ImgProcessing imgProc; // Holds functions for loading and creating images
+	FileManager fManager; // Holds function for 
+	System::String^ imagePath;
+
+	imagePath = marshal_as<System::String^>("..//Data//input\\in000" + std::to_string(MASK) + ".jpg");
+	int ImageWidth = 4, ImageHeight = 4;
+	int* maskImg = imgProc.inputImage(&ImageWidth, &ImageHeight, imagePath);
+
 	// Initialise MPI environment
 	MPI_Init(NULL, NULL);
 
@@ -24,14 +33,11 @@ int main()
 	int worldRank;
 	MPI_Comm_rank(MPI_COMM_WORLD, &worldRank);
 
-	ImgProcessing imgProc; // Holds functions for loading and creating images
-	FileManager fManager; // Holds function for 
-	System::String^ imagePath;
-
+	
 	int start_s, stop_s, TotalTime = 0; // Stopwatch for testing
-	int ImageWidth = 4, ImageHeight = 4;
+
 	int imageCount = 0;
-	int threshold = 40; // Controls what pixels to show in FG mask
+	int threshold = 50; // Controls what pixels to show in FG mask
 	int** imagesData = NULL; // 2D matrix to hold all the image vectors
 	int* pathLength = NULL; // Holds the length of each string for each path
 
@@ -51,14 +57,36 @@ int main()
 		return 0;
 	}
 
-	int imagesPerProcess = imageCount / worldSize;
-	imagesData = new int* [imagesPerProcess];
+	int localImageCount;
+	int* imagesPerProcess = new int[worldSize];
+
+	// Set inital images per process counts to 0
+	for (int i = 0; i < worldSize; i++)
+	{
+		imagesPerProcess[i] = 0;
+	}
+
+	// Distribute images count in array
+	if (worldRank == 0)
+	{
+		for (int i = 0; i < imageCount; i++)
+		{
+			imagesPerProcess[i % (worldSize)]++;
+		}
+		for (int c = 0; c < worldSize; c++)
+			std::cout << "Processor " << c << " has " << imagesPerProcess[c] << " images" << std::endl;
+	}
+	
+	// Scatter the image count array so each processor knows their image count
+	MPI_Scatter(imagesPerProcess, 1, MPI_INT, &localImageCount, 1, MPI_INT, 0, MPI_COMM_WORLD);
+
+	imagesData = new int* [localImageCount];
 
 	// Get image data with each processor to 2d array
-	for (int i = worldRank * (imagesPerProcess); i < (worldRank + 1) * (imagesPerProcess); i++)
+	for (int i = worldRank * (localImageCount); i < (worldRank + 1) * (localImageCount); i++)
 	{
 		imagePath = marshal_as<System::String^>(fileList[i]);
-		imagesData[i % (imagesPerProcess)] = imgProc.inputImage(&ImageWidth, &ImageHeight, imagePath);
+		imagesData[i % (localImageCount)] = imgProc.inputImage(&ImageWidth, &ImageHeight, imagePath);
 	}
 
 	float* localBG_Pixels = new float[ImageHeight * ImageWidth];
@@ -70,7 +98,7 @@ int main()
 	for (int p = 0; p < ImageHeight * ImageWidth; p++)
 	{
 		int sum = 0;
-		for (int i = 0; i < imagesPerProcess; i++)
+		for (int i = 0; i < localImageCount; i++)
 			sum += imagesData[i][p];
 		localBG_Pixels[p] = sum / imageCount;
 	}
@@ -85,11 +113,8 @@ int main()
 	float* finalLocalBG = new float[(ImageHeight * ImageWidth) / worldSize];
 	int* InputImageData = new int[ImageHeight * ImageWidth];
 	
-	// Get data for input image (last image)
-	InputImageData = imagesData[(imagesPerProcess) - 1];
-
-	// Broadcast image data from last processor as it is the last image
-	MPI_Bcast(InputImageData, ImageHeight * ImageWidth, MPI_INT, worldSize - 1, MPI_COMM_WORLD);
+	// Get data for input image
+	InputImageData = maskImg;
 
 	// Scatter the bg pixels to each processor
 	MPI_Scatter(BG_Pixels, (ImageHeight * ImageWidth) / worldSize, MPI_FLOAT, finalLocalBG, (ImageHeight * ImageWidth) / worldSize, MPI_FLOAT, 0, MPI_COMM_WORLD);
@@ -106,7 +131,7 @@ int main()
 	// Create foreground maks using FG_Pixels at root
 	if (worldRank == 0)
 		imgProc.createImage(FG_Pixels, ImageWidth, ImageHeight, 1);
-
+	
 	stop_s = clock(); // Get end time of stopwatch
 	TotalTime += (stop_s - start_s) / double(CLOCKS_PER_SEC) * 1000;
 	cout << "time: " << TotalTime << endl;
